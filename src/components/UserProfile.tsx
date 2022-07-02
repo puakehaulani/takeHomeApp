@@ -17,6 +17,7 @@ export const UserProfile = () => {
         style={{
           justifyContent: 'center',
           alignItems: 'center',
+          marginTop: 10,
         }}>
         <Image
           source={{uri: `https://i.pravatar.cc/150?img=4`}}

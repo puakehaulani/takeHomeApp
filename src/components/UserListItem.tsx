@@ -1,11 +1,16 @@
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {View, Text, Pressable, Image, StyleSheet} from 'react-native';
 
 export const UserListItem = props => {
   const {user} = props;
-  console.log('item', user);
+  const navigation = useNavigation();
   return (
-    <Pressable onPress={() => console.log(user.name)}>
+    <Pressable
+      onPress={
+        () => navigation.navigate('Profile')
+        // console.log('pressed', user.name)
+      }>
       <View
         style={[
           {
