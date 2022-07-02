@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Pressable, StyleSheet} from 'react-native';
+import {View, Text, Pressable, Image, StyleSheet} from 'react-native';
 
 export const UserListItem = props => {
   const {user} = props;
@@ -25,20 +25,17 @@ export const UserListItem = props => {
           style={{
             flex: 1,
             alignItems: 'center',
-            //    backgroundColor: 'yellow'
+            // backgroundColor: 'yellow',
           }}>
-          <View
-            style={[
-              {
-                width: 60,
-                height: 60,
-                borderWidth: 1,
-                borderColor: 'pink',
-                borderRadius: 30,
-                backgroundColor: 'lavender',
-              },
-              styles.shadow,
-            ]}
+          <Image
+            source={{uri: `https://i.pravatar.cc/150?img=${user.id}`}}
+            style={{
+              width: 60,
+              height: 60,
+              borderWidth: 1,
+              borderColor: 'white',
+              borderRadius: 30,
+            }}
           />
         </View>
         <View
@@ -47,8 +44,8 @@ export const UserListItem = props => {
             flexDirection: 'column',
             //   backgroundColor: 'pink',
           }}>
-          <Text>{user.name}</Text>
-          <Text>{user.email}</Text>
+          <Text style={styles.titleText}>{user.name}</Text>
+          <Text style={styles.subtitleText}>{user.email}</Text>
         </View>
       </View>
     </Pressable>
@@ -62,5 +59,26 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 3,
     elevation: 5,
+  },
+  titleText: {
+    color: 'black',
+    fontSize: 20,
+    fontFamily: 'ArialRoundedMTBold',
+  },
+  subtitleText: {
+    color: 'gray',
+    fontSize: 14,
+    fontFamily: 'ArialMT',
+  },
+  bodyText: {
+    color: 'black',
+    fontSize: 12,
+    fontFamily: 'ArialMT',
+  },
+  boldText: {
+    color: 'black',
+    fontSize: 12,
+    fontWeight: 'bold',
+    fontFamily: 'ArialMT',
   },
 });

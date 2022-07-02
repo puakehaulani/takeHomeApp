@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { ListScreen } from './src/screens/ListScreen';
+import { ProfileScreen } from './src/screens/ProfileScreen';
 
 const App = () => {
   // const isDarkMode = useColorScheme() === 'dark';
@@ -9,7 +10,7 @@ const App = () => {
   //   backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   // };
 
-  return <ListScreen />;
+  return <ProfileScreen />;
 };
 
 export default App;
