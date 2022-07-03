@@ -5,10 +5,11 @@ import {View, Text, Pressable, Image, StyleSheet} from 'react-native';
 export const UserListItem = props => {
   const {user} = props;
   const navigation = useNavigation();
+  //   console.log('User', user);
   return (
     <Pressable
       onPress={
-        () => navigation.navigate('Profile')
+        () => navigation.navigate('Profile', {user})
         // console.log('pressed', user.name)
       }>
       <View
@@ -49,8 +50,8 @@ export const UserListItem = props => {
             flexDirection: 'column',
             //   backgroundColor: 'pink',
           }}>
-          <Text style={styles.titleText}>{user.name}</Text>
-          <Text style={styles.subtitleText}>{user.email}</Text>
+          <Text style={styles.titleText}>Name: {user.name}</Text>
+          <Text style={styles.subtitleText}>Email: {user.email}</Text>
         </View>
       </View>
     </Pressable>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import type {Node} from 'react';
 import {
   SafeAreaView,
@@ -20,11 +20,30 @@ import {
 import {UserList} from '../components/UserList';
 
 export const ListScreen: () => Node = ({navigation}) => {
+  const [usersData, setUsersData] = useState();
   const isDarkMode = useColorScheme() === 'dark';
-  console.log('nav', navigation);
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
+
+  const getUsers = () => {
+    return fetch('https://jsonplaceholder.typicode.com/users')
+      .then(response => response.json())
+      .then(responseJson => {
+        setUsersData(responseJson);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  };
+
+  useEffect(() => {
+    getUsers();
+  }, []);
+
+  if (usersData === undefined) {
+    console.log('loading');
+  }
 
   return (
     <SafeAreaView style={backgroundStyle}>
@@ -36,7 +55,7 @@ export const ListScreen: () => Node = ({navigation}) => {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <UserList />
+          <UserList props={usersData} />
         </View>
       </ScrollView>
     </SafeAreaView>

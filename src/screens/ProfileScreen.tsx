@@ -18,47 +18,27 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import {UserProfile} from '../components/UserProfile';
-import {tempData} from '../components/tempData';
 
-export const ProfileScreen: () => Node = () => {
+export const ProfileScreen: () => Node = ({route}) => {
   const isDarkMode = useColorScheme() === 'dark';
-
+  const user = route.params.user;
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
+    <>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
         <View
           style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
+            backgroundColor: isDarkMode ? Colors.black : Colors.offWhite,
           }}>
-          <UserProfile />
+          <UserProfile props={user} />
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </>
   );
 };
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
