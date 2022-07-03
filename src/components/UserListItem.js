@@ -1,12 +1,12 @@
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import {View, Text, Pressable, Image, StyleSheet} from 'react-native';
+import { View, Text, Pressable, Image, StyleSheet } from 'react-native';
 
-export const UserListItem = (props: {user: any}) => {
-  const {user} = props;
+export const UserListItem = props => {
+  const { user } = props;
   const navigation = useNavigation();
   return (
-    <Pressable onPress={() => navigation.navigate('Profile', {user})}>
+    <Pressable onPress={() => navigation.navigate('Profile', { user })}>
       <View
         style={[
           {
@@ -28,7 +28,7 @@ export const UserListItem = (props: {user: any}) => {
             alignItems: 'center',
           }}>
           <Image
-            source={{uri: `https://i.pravatar.cc/150?img=${user.id}`}}
+            source={{ uri: `https://i.pravatar.cc/150?img=${user.id}` }}
             style={{
               width: 60,
               height: 60,
@@ -54,7 +54,7 @@ export const UserListItem = (props: {user: any}) => {
 const styles = StyleSheet.create({
   shadow: {
     shadowColor: '#171717',
-    shadowOffset: {width: -2, height: 4},
+    shadowOffset: { width: -2, height: 4 },
     shadowOpacity: 0.2,
     shadowRadius: 3,
     elevation: 5,

@@ -8,13 +8,13 @@ import {
   Dimensions,
 } from 'react-native';
 
-export const UserProfile = (props: {props: any}) => {
+export const UserProfile = props => {
   const user = props?.props;
   const width = Dimensions.get('window').width;
   const height = Dimensions.get('window').height;
 
   return (
-    <View style={{height: height}}>
+    <View style={{ height: height }}>
       <View
         style={{
           justifyContent: 'center',
@@ -23,7 +23,7 @@ export const UserProfile = (props: {props: any}) => {
           marginBottom: 200,
         }}>
         <Image
-          source={{uri: `https://i.pravatar.cc/150?img=${user.id}`}}
+          source={{ uri: `https://i.pravatar.cc/150?img=${user.id}` }}
           style={{
             width: 160,
             height: 160,
@@ -51,14 +51,14 @@ export const UserProfile = (props: {props: any}) => {
             },
             styles.shadow,
           ]}>
-          <View style={{flexDirection: 'column'}}>
-            <View style={{alignItems: 'center'}}>
+          <View style={{ flexDirection: 'column' }}>
+            <View style={{ alignItems: 'center' }}>
               <Text style={styles.titleText}>{user.name}</Text>
               <Text style={styles.subtitleText}>@{user.username}</Text>
             </View>
           </View>
-          <View style={{flexDirection: 'row'}}>
-            <View style={{alignItems: 'center'}}>
+          <View style={{ flexDirection: 'row' }}>
+            <View style={{ alignItems: 'center' }}>
               <Text style={styles.smallTitleText}>company</Text>
               <Text style={styles.boldText}>{user.company.name}</Text>
             </View>
@@ -71,14 +71,14 @@ export const UserProfile = (props: {props: any}) => {
               }}>
               |
             </Text>
-            <View style={{alignItems: 'center'}}>
+            <View style={{ alignItems: 'center' }}>
               <Text style={styles.smallTitleText}>website</Text>
               <Text style={styles.boldText}>{user.website}</Text>
             </View>
           </View>
         </View>
       </View>
-      <View style={{marginHorizontal: 10, marginTop: 10}}>
+      <View style={{ marginHorizontal: 10, marginTop: 10 }}>
         <Text style={styles.smallTitleText}>email</Text>
         <Text style={styles.bodyText}>{user.email}</Text>
         <Text style={styles.smallTitleText}>phone</Text>
@@ -98,7 +98,7 @@ export const UserProfile = (props: {props: any}) => {
 const styles = StyleSheet.create({
   shadow: {
     shadowColor: '#171717',
-    shadowOffset: {width: 1, height: 3},
+    shadowOffset: { width: 1, height: 3 },
     shadowOpacity: 0.2,
     shadowRadius: 5,
     elevation: 5,
