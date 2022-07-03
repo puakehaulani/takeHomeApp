@@ -50,8 +50,8 @@ export const UserListItem = props => {
             flexDirection: 'column',
             //   backgroundColor: 'pink',
           }}>
-          <Text style={styles.titleText}>Name: {user.name}</Text>
-          <Text style={styles.subtitleText}>Email: {user.email}</Text>
+          <Text style={styles.titleText}>{user.name}</Text>
+          <Text style={styles.subtitleText}>{user.email}</Text>
         </View>
       </View>
     </Pressable>
