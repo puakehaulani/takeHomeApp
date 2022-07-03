@@ -1,25 +1,10 @@
 import React from 'react';
-import type {Node} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import {ScrollView, StatusBar, useColorScheme, View} from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {UserProfile} from '../components/UserProfile';
 
-export const ProfileScreen: () => Node = ({route}) => {
+export const ProfileScreen = ({route}) => {
   const isDarkMode = useColorScheme() === 'dark';
   const user = route.params.user;
   const backgroundStyle = {

@@ -8,7 +8,7 @@ import {
   Dimensions,
 } from 'react-native';
 
-export const UserProfile = props => {
+export const UserProfile = (props: {props: any}) => {
   const user = props?.props;
   const width = Dimensions.get('window').width;
   const height = Dimensions.get('window').height;

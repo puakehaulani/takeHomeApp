@@ -1,25 +1,17 @@
 import React, {useEffect, useState} from 'react';
-import type {Node} from 'react';
 import {
   SafeAreaView,
   ScrollView,
   StatusBar,
-  StyleSheet,
-  Text,
   useColorScheme,
   View,
+  ActivityIndicator,
 } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {UserList} from '../components/UserList';
 
-export const ListScreen: () => Node = ({navigation}) => {
+export const ListScreen = () => {
   const [usersData, setUsersData] = useState();
   const isDarkMode = useColorScheme() === 'dark';
   const backgroundStyle = {
@@ -42,7 +34,7 @@ export const ListScreen: () => Node = ({navigation}) => {
   }, []);
 
   if (usersData === undefined) {
-    console.log('loading');
+    return <ActivityIndicator />;
   }
 
   return (
@@ -61,22 +53,3 @@ export const ListScreen: () => Node = ({navigation}) => {
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});

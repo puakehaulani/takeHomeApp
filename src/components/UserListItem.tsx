@@ -2,16 +2,11 @@ import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {View, Text, Pressable, Image, StyleSheet} from 'react-native';
 
-export const UserListItem = props => {
+export const UserListItem = (props: {user: any}) => {
   const {user} = props;
   const navigation = useNavigation();
-  //   console.log('User', user);
   return (
-    <Pressable
-      onPress={
-        () => navigation.navigate('Profile', {user})
-        // console.log('pressed', user.name)
-      }>
+    <Pressable onPress={() => navigation.navigate('Profile', {user})}>
       <View
         style={[
           {
@@ -31,7 +26,6 @@ export const UserListItem = props => {
           style={{
             flex: 1,
             alignItems: 'center',
-            // backgroundColor: 'yellow',
           }}>
           <Image
             source={{uri: `https://i.pravatar.cc/150?img=${user.id}`}}
@@ -48,7 +42,6 @@ export const UserListItem = props => {
           style={{
             flex: 2,
             flexDirection: 'column',
-            //   backgroundColor: 'pink',
           }}>
           <Text style={styles.titleText}>{user.name}</Text>
           <Text style={styles.subtitleText}>{user.email}</Text>
