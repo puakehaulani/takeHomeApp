@@ -65,23 +65,22 @@ export const ListScreen = () => {
   return (
     <SafeAreaView style={styles.background}>
       <StatusBar barStyle={theme == 'dark' ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={styles.background}>
-        {!netInfo.isConnected || !netInfo.isInternetReachable ?
-          <View>
-            <BlinkView delay={2000} element={View} style={{ width: '100%', height: 40, backgroundColor: '#D3D3D3' }} />
-            <Text style={{ textAlign: 'center', position: 'absolute', left: 80, top: 10 }}>
-              You're offline. Check your connection.
-            </Text>
-          </View>
-          : (
-            <View
-              style={styles.background}>
-              <UserList props={usersData} />
-            </View>)
-        }
-      </ScrollView>
+
+
+      {!netInfo.isConnected || !netInfo.isInternetReachable ?
+        <View style={{ height: '100%' }}>
+          <BlinkView delay={2000} element={View} style={{ width: '100%', height: 40, backgroundColor: '#D3D3D3' }} />
+          <Text style={{ textAlign: 'center', position: 'absolute', left: 80, top: 10 }}>
+            You're offline. Check your connection.
+          </Text>
+        </View>
+        :
+
+        <ScrollView contentInsetAdjustmentBehavior="automatic">
+          <UserList props={usersData} />
+        </ScrollView>
+      }
+
     </SafeAreaView >
   );
 };
