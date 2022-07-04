@@ -78,3 +78,7 @@ For any questions, please reach out to <puakehaulani.dev@gmail.com>
 [dev repo](http://github.com/puakehaulani)
 |
 [dev website](http://lexi.scalesdev.com)
+
+<div data-snack-id="@puakehaulani/github.com-puakehaulani-takehomeapp" data-snack-platform="ios" data-snack-preview="true" data-snack-theme="dark" style="overflow:hidden;background:#212121;border:1px solid var(--color-border);border-radius:4px;height:505px;width:100%"></div>
+
+<script async src="https://snack.expo.dev/embed.js"></script>
