@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -8,8 +8,19 @@ import {
   ActivityIndicator,
 } from 'react-native';
 
-import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {UserList} from '../components/UserList';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { UserList } from '../components/UserList';
+
+export const getUsers = () => {
+  return fetch('https://jsonplaceholder.typicode.com/users')
+    .then(response => response.json(response.data))
+    .then(responseJson => {
+      return responseJson
+    })
+    .catch(error => {
+      console.error(error);
+    });
+};
 
 export const ListScreen = () => {
   const [usersData, setUsersData] = useState();
@@ -18,19 +29,9 @@ export const ListScreen = () => {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-  const getUsers = () => {
-    return fetch('https://jsonplaceholder.typicode.com/users')
-      .then(response => response.json())
-      .then(responseJson => {
-        setUsersData(responseJson);
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  };
-
   useEffect(() => {
-    getUsers();
+    getUsers().then(res =>
+      setUsersData(res))
   }, []);
 
   if (usersData === undefined) {
