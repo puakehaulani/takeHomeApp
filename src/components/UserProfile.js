@@ -94,7 +94,7 @@ export const UserProfile = props => {
           ]}>
           <View style={{ flexDirection: 'column' }}>
             <View style={{ alignItems: 'center' }}>
-              <Text style={styles.titleText}>{user.name}</Text>
+              <Text style={[styles.titleText, { textAlign: 'center' }]}>{user.name.replace(/\b(?:Mrs\.? *|Mr\. *|, Ms)\b/g, '')}</Text>
               <Text style={styles.subtitleText}>@{user.username}</Text>
             </View>
           </View>
@@ -119,17 +119,17 @@ export const UserProfile = props => {
           </View>
         </View>
       </View>
-      <View style={{ marginHorizontal: 10, marginTop: 10 }}>
+      <View style={{ marginHorizontal: 25, marginTop: 10 }}>
         <Text style={styles.smallTitleText}>email</Text>
         <Text style={styles.bodyText}>{user.email}</Text>
         <Text style={styles.smallTitleText}>phone</Text>
-        <Text style={styles.bodyText}>{user.phone}</Text>
+        <Text style={styles.bodyText}>{user.phone.replace(/\./g, '-').replace(/\(/g, '').replace(/\)/g, '-')}</Text>
         <Text style={styles.smallTitleText}>address</Text>
         <Text style={styles.bodyText}>
-          {user.address.suite.substr(-3, 3)} {user.address.street} Street
+          {user.address.suite} {user.address.street}
         </Text>
         <Text style={styles.bodyText}>
-          {user.address.city}, TX {user.address.zipcode.substr(0, 5)}
+          {user.address.city} {user.address.zipcode.substr(0, 5)}
         </Text>
       </View>
     </View>

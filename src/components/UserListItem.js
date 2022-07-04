@@ -77,7 +77,7 @@ export const UserListItem = props => {
             flex: 2,
             flexDirection: 'column',
           }}>
-          <Text style={styles.titleText}>{user.name}</Text>
+          <Text style={styles.titleText}>{user.name.replace(/\b(?:Mrs\.? *|Mr\. *|, Ms)\b/g, '')}</Text>
           <Text style={styles.subtitleText}>{user.email}</Text>
         </View>
       </View>
