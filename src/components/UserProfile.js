@@ -72,6 +72,7 @@ export const UserProfile = props => {
             borderColor: 'transparent',
             borderRadius: 80,
             zIndex: 1,
+            elevation: 5
           }}
         />
         <View
