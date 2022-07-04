@@ -41,7 +41,7 @@ export const NavContainer = () => {
                     name="List"
                     component={ListScreen}
                     options={{
-                        title: 'Users',
+                        title: 'Contacts',
                     }}
                 />
                 <Stack.Screen
