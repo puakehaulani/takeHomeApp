@@ -2,12 +2,12 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-![ios list screenshot]()
-![ios profile screenshot]()
+![ios list screenshot](assets/iosListLight.png) ![ios list screenshot](assets/iosListDark.png)
+![ios profile screenshot](assets/iosProfileLight.png) ![ios profile screenshot](assets/iosProfileDark.png)
 
-[Explore the docs](https://github.com/puakehaulani/takeHomeApp)
-
-<!-- [See the deployment]() -->
+[Explore the docs](https://github.com/puakehaulani/takeHomeApp)  
+[Expo Snack deployment](https://snack.expo.dev/@puakehaulani/github.com-puakehaulani-takehomeapp)  
+![qr](assets/qrcode.png)
 
 ---
 
@@ -24,7 +24,11 @@
 
 ## About the Project
 
-A simple mobile app made with React Native to display a list of users. Each user in the list has a profile view with extended contact information, accessible by tapping their entry in the list.
+A simple mobile app made with React Native to display a list of users.  
+Each user in the list has a profile view with extended contact information, accessible by tapping their entry in the list.  
+Data is recieved from https://jsonplaceholder.typicode.com/users api, and images are supplied from https://pravatar.cc/ using the user response key as the unique identifier, so the images are not randomly assigned each time.  
+Toggle the upper right button to switch from light to dark mode.  
+Orientation is currently locked to portrait mode to ensure no unexpected ui changes on orientation change. Later iterations to include a specific landscape design implementation as well as logic to listen for orientation changes.
 
 ## Usage
 
@@ -78,7 +82,3 @@ For any questions, please reach out to <puakehaulani.dev@gmail.com>
 [dev repo](http://github.com/puakehaulani)
 |
 [dev website](http://lexi.scalesdev.com)
-
-<div data-snack-id="@puakehaulani/github.com-puakehaulani-takehomeapp" data-snack-platform="ios" data-snack-preview="true" data-snack-theme="dark" style="overflow:hidden;background:#212121;border:1px solid var(--color-border);border-radius:4px;height:505px;width:100%"></div>
-
-<script async src="https://snack.expo.dev/embed.js"></script>
