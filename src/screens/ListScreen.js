@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import {
   SafeAreaView,
   ScrollView,
   StatusBar,
   useColorScheme,
   View,
+  Pressable,
+  Text,
   ActivityIndicator,
 } from 'react-native';
 
 import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { ThemeContext } from '../context/themeContext';
 import { UserList } from '../components/UserList';
 
 export const getUsers = () => {
@@ -28,8 +31,16 @@ export const ListScreen = () => {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
+  const { theme, setTheme } = useContext(ThemeContext);
+  const handleThemeChange = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light');
+  }
 
   useEffect(() => {
+    console.log('theme changed', theme);
+  }, [theme]);
+  useEffect(() => {
+    console.log("THE THEME IS", theme)
     getUsers().then(res =>
       setUsersData(res))
   }, []);
@@ -41,6 +52,7 @@ export const ListScreen = () => {
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+      <Pressable onPress={handleThemeChange}><Text>BUTTON</Text></Pressable>
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>

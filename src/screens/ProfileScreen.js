@@ -1,15 +1,21 @@
-import React from 'react';
-import {ScrollView, StatusBar, useColorScheme, View} from 'react-native';
+import React, { useContext, useEffect } from 'react';
+import { ScrollView, StatusBar, useColorScheme, View } from 'react-native';
+import { ThemeContext } from '../context/themeContext'
+import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { UserProfile } from '../components/UserProfile';
 
-import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {UserProfile} from '../components/UserProfile';
-
-export const ProfileScreen = ({route}) => {
+export const ProfileScreen = ({ route }) => {
+  const { theme, setTheme } = useContext(ThemeContext);
   const isDarkMode = useColorScheme() === 'dark';
   const user = route.params.user;
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
+
+  useEffect(() => {
+    console.log("THE THEME IS", theme)
+  }, [])
+
 
   return (
     <>
