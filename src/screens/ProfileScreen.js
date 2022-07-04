@@ -16,14 +16,14 @@ export const ProfileScreen = ({ route }) => {
   return (
     <>
       <StatusBar barStyle={theme === 'dark' ? 'light-content' : 'dark-content'} />
-      <ScrollView
+      <View
         contentInsetAdjustmentBehavior="automatic"
         style={styles.background}>
         <View
           style={styles.background}>
           <UserProfile props={user} />
         </View>
-      </ScrollView>
+      </View>
     </>
   );
 };

@@ -55,7 +55,7 @@ export const UserProfile = props => {
   }
 
   return (
-    <View style={{ height: height }}>
+    <View style={{ height: '100%' }}>
       <View
         style={{
           justifyContent: 'center',
