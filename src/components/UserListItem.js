@@ -1,10 +1,44 @@
 import { useNavigation } from '@react-navigation/native';
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, Text, Pressable, Image, StyleSheet } from 'react-native';
+import { ThemeContext } from '../context/themeContext'
 
 export const UserListItem = props => {
   const { user } = props;
   const navigation = useNavigation();
+  const { theme } = useContext(ThemeContext);
+
+  const styles = {
+    shadow: {
+      shadowColor: theme === 'dark' ? '#FAF9F6' : '#121212',
+      shadowOffset: { width: -2, height: 4 },
+      shadowOpacity: 0.2,
+      shadowRadius: 3,
+      elevation: 5,
+    },
+    titleText: {
+      color: theme === 'dark' ? '#FAF9F6' : '#121212',
+      fontSize: 20,
+      fontFamily: 'ArialRoundedMTBold',
+    },
+    subtitleText: {
+      color: 'gray',
+      fontSize: 14,
+      fontFamily: 'ArialMT',
+    },
+    bodyText: {
+      color: theme === 'dark' ? '#FAF9F6' : '#121212',
+      fontSize: 12,
+      fontFamily: 'ArialMT',
+    },
+    boldText: {
+      color: theme === 'dark' ? '#FAF9F6' : '#121212',
+      fontSize: 12,
+      fontWeight: 'bold',
+      fontFamily: 'ArialMT',
+    },
+  };
+
   return (
     <Pressable onPress={() => navigation.navigate('Profile', { user })}>
       <View
@@ -14,11 +48,11 @@ export const UserListItem = props => {
             flexDirection: 'row',
             borderWidth: 1,
             borderRadius: 20,
-            borderColor: 'white',
+            borderColor: theme === 'dark' ? '#121212' : '#FAF9F6',
             height: 70,
             margin: 10,
             alignItems: 'center',
-            backgroundColor: 'white',
+            backgroundColor: theme === 'dark' ? '#121212' : '#FAF9F6',
           },
           styles.shadow,
         ]}>
@@ -33,7 +67,7 @@ export const UserListItem = props => {
               width: 60,
               height: 60,
               borderWidth: 1,
-              borderColor: 'white',
+              borderColor: theme === 'dark' ? '#121212' : '#FAF9F6',
               borderRadius: 30,
             }}
           />
@@ -51,33 +85,3 @@ export const UserListItem = props => {
   );
 };
 
-const styles = StyleSheet.create({
-  shadow: {
-    shadowColor: '#171717',
-    shadowOffset: { width: -2, height: 4 },
-    shadowOpacity: 0.2,
-    shadowRadius: 3,
-    elevation: 5,
-  },
-  titleText: {
-    color: 'black',
-    fontSize: 20,
-    fontFamily: 'ArialRoundedMTBold',
-  },
-  subtitleText: {
-    color: 'gray',
-    fontSize: 14,
-    fontFamily: 'ArialMT',
-  },
-  bodyText: {
-    color: 'black',
-    fontSize: 12,
-    fontFamily: 'ArialMT',
-  },
-  boldText: {
-    color: 'black',
-    fontSize: 12,
-    fontWeight: 'bold',
-    fontFamily: 'ArialMT',
-  },
-});

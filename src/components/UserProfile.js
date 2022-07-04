@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   View,
   Text,
@@ -7,11 +7,52 @@ import {
   StyleSheet,
   Dimensions,
 } from 'react-native';
+import { ThemeContext } from '../context/themeContext'
 
 export const UserProfile = props => {
   const user = props?.props;
   const width = Dimensions.get('window').width;
   const height = Dimensions.get('window').height;
+  const { theme } = useContext(ThemeContext);
+
+  const styles = {
+    shadow: {
+      shadowColor: theme === 'dark' ? '#FAF9F6' : '#121212',
+      shadowOffset: { width: 1, height: 3 },
+      shadowOpacity: 0.2,
+      shadowRadius: 5,
+      elevation: 5,
+    },
+    titleText: {
+      color: theme === 'dark' ? '#FAF9F6' : '#121212',
+      fontSize: 40,
+      fontFamily: 'ArialRoundedMTBold',
+    },
+    subtitleText: {
+      color: 'gray',
+      fontSize: 20,
+      fontFamily: 'ArialMT',
+      marginBottom: 10,
+    },
+    bodyText: {
+      color: theme === 'dark' ? '#FAF9F6' : '#121212',
+      fontSize: 18,
+      fontFamily: 'ArialMT',
+      marginBottom: 10,
+    },
+    boldText: {
+      color: theme === 'dark' ? '#FAF9F6' : '#121212',
+      fontSize: 16,
+      fontWeight: 'bold',
+      fontFamily: 'ArialMT',
+    },
+    smallTitleText: {
+      color: 'gray',
+      fontSize: 15,
+      fontFamily: 'ArialMT',
+      marginBottom: 5,
+    },
+  }
 
   return (
     <View style={{ height: height }}>
@@ -38,10 +79,10 @@ export const UserProfile = props => {
             {
               borderWidth: 1,
               borderRadius: 20,
-              borderColor: 'white',
+              borderColor: theme === 'dark' ? "#121212" : 'white',
               width: 0.9 * width,
               alignItems: 'center',
-              backgroundColor: 'white',
+              backgroundColor: theme === 'dark' ? "#121212" : 'white',
               zIndex: 0.1,
               paddingTop: 120,
               paddingBottom: 10,
@@ -94,42 +135,3 @@ export const UserProfile = props => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  shadow: {
-    shadowColor: '#171717',
-    shadowOffset: { width: 1, height: 3 },
-    shadowOpacity: 0.2,
-    shadowRadius: 5,
-    elevation: 5,
-  },
-  titleText: {
-    color: 'black',
-    fontSize: 40,
-    fontFamily: 'ArialRoundedMTBold',
-  },
-  subtitleText: {
-    color: 'gray',
-    fontSize: 20,
-    fontFamily: 'ArialMT',
-    marginBottom: 10,
-  },
-  bodyText: {
-    color: 'black',
-    fontSize: 18,
-    fontFamily: 'ArialMT',
-    marginBottom: 10,
-  },
-  boldText: {
-    color: 'black',
-    fontSize: 16,
-    fontWeight: 'bold',
-    fontFamily: 'ArialMT',
-  },
-  smallTitleText: {
-    color: 'gray',
-    fontSize: 15,
-    fontFamily: 'ArialMT',
-    marginBottom: 5,
-  },
-});

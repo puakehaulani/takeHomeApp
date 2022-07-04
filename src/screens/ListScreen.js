@@ -10,7 +10,7 @@ import {
   ActivityIndicator,
 } from 'react-native';
 
-import { Colors } from 'react-native/Libraries/NewAppScreen';
+// import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { ThemeContext } from '../context/themeContext';
 import { UserList } from '../components/UserList';
 
@@ -27,39 +27,35 @@ export const getUsers = () => {
 
 export const ListScreen = () => {
   const [usersData, setUsersData] = useState();
-  const isDarkMode = useColorScheme() === 'dark';
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
   const { theme, setTheme } = useContext(ThemeContext);
-  const handleThemeChange = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light');
-  }
 
   useEffect(() => {
-    console.log('theme changed', theme);
-  }, [theme]);
-  useEffect(() => {
-    console.log("THE THEME IS", theme)
     getUsers().then(res =>
       setUsersData(res))
   }, []);
+
+  const styles = {
+    background: {
+      backgroundColor: theme === 'dark' ? "#121212" : '#FAF9F6'
+    }
+  }
+
+  const handleThemeChange = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light');
+  }
 
   if (usersData === undefined) {
     return <ActivityIndicator />;
   }
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <Pressable onPress={handleThemeChange}><Text>BUTTON</Text></Pressable>
+    <SafeAreaView style={styles.background}>
+      <StatusBar barStyle={theme == 'dark' ? 'dark-content' : 'light-content'} />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
+        style={styles.background}>
         <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
+          style={styles.background}>
           <UserList props={usersData} />
         </View>
       </ScrollView>
