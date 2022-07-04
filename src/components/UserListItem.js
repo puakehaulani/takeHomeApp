@@ -62,7 +62,7 @@ export const UserListItem = props => {
             alignItems: 'center',
           }}>
           <Image
-            source={{ uri: `https://i.pravatar.cc/150?img=${user.id}` }}
+            source={{ uri: `https://i.pravatar.cc/150?img=${(user.id + 6)}` }}
             style={{
               width: 60,
               height: 60,
