@@ -64,7 +64,7 @@ export const UserProfile = props => {
           marginBottom: 200,
         }}>
         <Image
-          source={{ uri: `https://i.pravatar.cc/150?img=${user.id}` }}
+          source={{ uri: `https://i.pravatar.cc/150?img=${(user.id + 6)}` }}
           style={{
             width: 160,
             height: 160,
