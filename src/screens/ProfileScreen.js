@@ -9,7 +9,7 @@ export const ProfileScreen = ({ route }) => {
   const user = route.params.user;
   const styles = {
     background: {
-      backgroundColor: theme === 'dark' ? "#121212" : ' #FAF9F6'
+      backgroundColor: theme === 'dark' ? "#121212" : '#FAF9F6'
     }
   }
 
