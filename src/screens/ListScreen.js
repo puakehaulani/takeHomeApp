@@ -40,17 +40,13 @@ export const ListScreen = () => {
     }
   }
 
-  const handleThemeChange = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light');
-  }
-
   if (usersData === undefined) {
     return <ActivityIndicator />;
   }
 
   return (
     <SafeAreaView style={styles.background}>
-      <StatusBar barStyle={theme == 'dark' ? 'dark-content' : 'light-content'} />
+      <StatusBar barStyle={theme == 'dark' ? 'light-content' : 'dark-content'} />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={styles.background}>
