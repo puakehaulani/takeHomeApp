@@ -9,7 +9,7 @@
     "test": "jest",
     "lint": "eslint .",
     "full-clean": "rm -rf yarn.lock package-lock.json node_modules ios/Pods ios/Podfile.lock android/app/build",
-    "install": "npm install && cd ios && pod update && cd .."
+    "fresh-install": "npm install && cd ios && pod update && cd .."
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.11",
