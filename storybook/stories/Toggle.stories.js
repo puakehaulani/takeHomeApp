@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { View, Text, Switch, Pressable, Image } from 'react-native';
-import { CenterView } from './index'
+import { CenteredView } from './index'
 
 
 const styles = {
