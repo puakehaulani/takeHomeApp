@@ -62,4 +62,3 @@ buck-out/
 /ios/Pods/
 /vendor/bundle/
 
-package-lock.json
