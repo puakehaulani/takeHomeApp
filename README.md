@@ -1,13 +1,27 @@
-# Users Contact Info App
+# Users Contact Info App [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+# Check out the Expo Snack Deployment!
+
+> "Expo Snack is an open-source platform for running React Native apps in the browser. It dynamically bundles and compiles code and runs it in the Expo Client or in a web-player. Code can be saved as "Snacks" and easily shared with others."
+
+- ## via the browser:
+
+### [Expo Snack](https://snack.expo.dev/@puakehaulani/github.com-puakehaulani-takehomeapp)
+
+- ## via the Expo Go app:
+
+### [Download the Expo Go app](https://expo.dev/client)
+
+### Scan this QR code to get started
+
+![qr](assets/qrcode.png)
+
+read more about Expo Snack [here](https://github.com/expo/snack) and [here](https://blog.expo.dev/introducing-expo-dev-a70818bf336e)
 
 ![ios list screenshot](assets/iosListLight.png) ![ios list screenshot](assets/iosListDark.png)
 ![ios profile screenshot](assets/iosProfileLight.png) ![ios profile screenshot](assets/iosProfileDark.png)
 
-[Explore the docs](https://github.com/puakehaulani/takeHomeApp)  
-[Expo Snack deployment](https://snack.expo.dev/@puakehaulani/github.com-puakehaulani-takehomeapp)  
-![qr](assets/qrcode.png)
+[Explore the docs](https://github.com/puakehaulani/takeHomeApp)
 
 ---
 
