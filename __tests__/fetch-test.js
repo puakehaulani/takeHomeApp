@@ -1,6 +1,6 @@
 import 'react-native';
 import React from 'react';
-import { getUsers } from '../src/screens/ListScreen';
+import { useGetUsers } from '../src/hooks/useGetUsers'
 
 jest.useFakeTimers();
 const dummyData = [
@@ -77,7 +77,7 @@ const dummyData = [
 global.fetch = jest.fn(() => Promise.resolve({ json: () => Promise.resolve(dummyData) }));
 
 it('fetches user data', async () => {
-    const response = await getUsers()
+    const response = await useGetUsers()
     expect(response).toEqual(expect.arrayContaining(dummyData))
 
 });
