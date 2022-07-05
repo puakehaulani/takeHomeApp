@@ -8,11 +8,13 @@ const Stack = createNativeStackNavigator();
 
 const App = () => {
 
-  return (
-    <ThemeProvider>
-      <NavContainer />
-    </ThemeProvider>
-  );
+    return (
+        <ThemeProvider>
+            <NavContainer />
+        </ThemeProvider>
+    );
 };
 
 export default App;
+
+// export default from './storybook';

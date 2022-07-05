@@ -68,6 +68,18 @@ Run the following command in your terminal
 
     yarn test
 
+This app supports Storybook
+
+![storybook directory screenshot](assets/storybookDir.png) ![storybook toggle screenshot](assets/storybookToggle.png)
+![storybook list item screenshot](assets/storybookListItem.png) ![storybook profile screenshot](assets/storybookProfile.png)  
+To run storybook environment, replace App.js contents with `export default from './storybook';`
+
+## Helpful Comnmands
+
+Remove node modules, build folder, and podfile
+
+    yarn full-clean
+
 ## Contributing
 
 Contributions are not currently accepted and app is not actively maintained. Created as a skill sample for interviewing.
