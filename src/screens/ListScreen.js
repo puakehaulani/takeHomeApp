@@ -15,17 +15,18 @@ import { useNetInfo } from "@react-native-community/netinfo";
 import BlinkView from 'react-native-blink-view'
 import { ThemeContext } from '../context/themeContext';
 import { UserList } from '../components/UserList';
+import { useGetUsers } from '../hooks/useGetUsers';
 
-export const getUsers = () => {
-  return fetch('https://jsonplaceholder.typicode.com/users')
-    .then(response => response.json(response.data))
-    .then(responseJson => {
-      return responseJson
-    })
-    .catch(error => {
-      console.error(error);
-    });
-};
+// export const getUsers = () => {
+//   return fetch('https://jsonplaceholder.typicode.com/users')
+//     .then(response => response.json(response.data))
+//     .then(responseJson => {
+//       return responseJson
+//     })
+//     .catch(error => {
+//       console.error(error);
+//     });
+// };
 
 export const ListScreen = () => {
   const [usersData, setUsersData] = useState();
@@ -33,7 +34,7 @@ export const ListScreen = () => {
   const netInfo = useNetInfo();
   const width = Dimensions.get('window').width;
   useEffect(() => {
-    getUsers().then(res =>
+    useGetUsers().then(res =>
       setUsersData(res))
   }, []);
 
