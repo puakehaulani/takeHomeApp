@@ -1,23 +1,26 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
-import { View, Text } from 'react-native';
+import { View, Text, Switch, Pressable, Image } from 'react-native';
+import { UserProfile } from '../../src/components'
 
-const style = {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF'
+
+const styles = {
+    center: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#F5FCFF'
+    },
+
 };
 
-const CenteredView = ({ children }) => (
-    <View style={style}>
+
+export const CenteredView = ({ children }) => (
+    <View style={styles.center}>
         {children}
     </View>
 );
 
-storiesOf('CenteredView', module)
-    .add('default view', () => (
-        <CenteredView>
-            <Text>Hello Storybook</Text>
-        </CenteredView>
-    ));
+export * from './Toggle.stories'
+export * from './UserListItem.stories'
+export * from './UserProfile.stories'
